@@ -14,7 +14,7 @@
 		<div class="pt-3 flex items-center justify-between">
 			<p class="">{name}</p>
 			<svg
-				class="h-6 w-6 fill-current text-gray-500 hover:text-black"
+				class="h-6 w-6 fill-current text-text hover:text-primary"
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 24 24"
 			>

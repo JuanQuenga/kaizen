@@ -1,20 +1,20 @@
-<section class="bg-white dark:bg-gray-900">
+<section class="bg-secondary">
 	<div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
 		<div class="mr-auto place-self-center lg:col-span-7">
 			<h1
-				class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white"
+				class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-base"
 			>
 				Payments tool for software companies
 			</h1>
 			<p
-				class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400"
+				class="max-w-2xl mb-6 font-light text-white lg:mb-8 md:text-lg lg:text-xl "
 			>
 				From checkout to global sales tax compliance, companies around the world use Flowbite to
 				simplify their payment stack.
 			</p>
 			<a
 				href="#"
-				class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
+				class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-accent rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
 			>
 				Get started
 				<svg
@@ -31,7 +31,7 @@
 			</a>
 			<a
 				href="#"
-				class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
+				class="inline-flex items-center justify-center px-5 py-3 text-base hover:text-secondary font-medium text-center  border-none rounded-lg hover:bg-base focus:ring-4 focus:ring-gray-100 bg-primary"
 			>
 				Speak to Sales
 			</a>

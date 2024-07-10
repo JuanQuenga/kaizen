@@ -12,7 +12,7 @@
 					class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl"
 					href="#"
 				>
-					Current Products
+					Latest Products
 				</a>
 
 				<div class="flex items-center" id="store-nav-content">

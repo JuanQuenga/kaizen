@@ -7,10 +7,13 @@
 
   onMount(fetchProducts);
 
-  
+  // Fetch the products from the server
   async function fetchProducts() {
     try {
-      const response = await fetch('/api/stripe/products');
+			const url = new URL('/api/stripe/products', window.location.origin);
+			url.searchParams.append('limit', '4');
+			url.searchParams.append('expand[]', 'data.default_price')
+      const response = await fetch(url);
 
       if (!response.ok) {
         const errorBody = await response.text();

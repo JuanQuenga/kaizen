@@ -1,21 +1,23 @@
 import { STRIPE_SECRET_KEY } from "$env/static/private";
 
-/** @type {import('./$types').RequestHandler} */
+/**
+ * Fetches products from the Stripe API
+ * @see https://stripe.com/docs/api/products/list
+ */
+
 export async function GET({ url }) {
+  console.log("fetch");
+  console.log(url);
   const baseUrl = "https://api.stripe.com/v1/products";
   const fullUrl = new URL(baseUrl);
 
-  // Get limit from query params or use default
-  const limit = url.searchParams.get("limit") || "4";
-  fullUrl.searchParams.append("limit", limit);
-  fullUrl.searchParams.append("expand[]", "data.default_price");
-
   // Add any additional query params from the request
   for (const [key, value] of url.searchParams.entries()) {
-    if (key !== "limit" && key !== "expand[]") {
-      fullUrl.searchParams.append(key, value);
-    }
+    fullUrl.searchParams.append(key, value);
   }
+
+  console.log(fullUrl.toString());
+  console.log("full ^");
 
   // Fetch products from Stripe API
   try {

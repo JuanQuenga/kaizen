@@ -12,9 +12,9 @@
 			<img class="h-full w-full object-cover absolute" src = {src || printer} alt={name} />
 		</div>
 		<div class="pt-3 flex items-center justify-between">
-			<p class="text-secondary font-bold text-lg">{name}</p>
+			<p class="text-base font-bold text-lg">{name}</p>
 			
 		</div>
-		<p class="pt-1 text-accent">${price/100}</p>
+		<p class="pt-1 text-secondary">${price/100}</p>
 	</a>
 </div>

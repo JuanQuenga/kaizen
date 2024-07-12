@@ -10,6 +10,9 @@ export default {
         base: "#EDE9D0",
         nuetral: "#56423D",
       },
+      fontFamily: {
+        montserrat: ["Montserrat", "sans-serif"],
+      },
     },
   },
   // eslint-disable-next-line @typescript-eslint/no-require-imports

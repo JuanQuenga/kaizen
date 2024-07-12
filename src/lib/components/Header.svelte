@@ -1,16 +1,18 @@
-<section class="bg-secondary">
+<script lang="ts">
+	import printerImage from '$lib/assets/images/printers/transparent2.png';
+</script>
+<section class="bg-accent">
 	<div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
 		<div class="mr-auto place-self-center lg:col-span-7">
 			<h1
-				class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-base"
+				class="max-w-2xl mb-4 text-4xl font-semibold uppercase tracking-tight leading-none md:text-5xl xl:text-6xl text-white "
 			>
-				Payments tool for software companies
+				 Smart Home Innovation & Maker Essentials
 			</h1>
 			<p
-				class="max-w-2xl mb-6 font-light text-white lg:mb-8 md:text-lg lg:text-xl "
+				class="max-w-2xl mb-6 font-light text-base lg:mb-8 md:text-lg lg:text-xl "
 			>
-				From checkout to global sales tax compliance, companies around the world use Flowbite to
-				simplify their payment stack.
+				We create innovative smart home products using advanced manufacturing techniques, while also offering accessories for tools like XTOOL, CNCs, and 3D printers.
 			</p>
 			<a
 				href="#"
@@ -31,15 +33,16 @@
 			</a>
 			<a
 				href="#"
-				class="inline-flex items-center justify-center px-5 py-3 text-base hover:text-secondary font-medium text-center  border-none rounded-lg hover:bg-base focus:ring-4 focus:ring-gray-100 bg-primary"
+				class="inline-flex items-center justify-center px-5 py-3 text-base hover:text-secondary font-medium text-center  border-none rounded-lg hover:bg-base focus:ring-4 focus:ring-gray-100 bg-nuetral"
 			>
 				Speak to Sales
 			</a>
 		</div>
 		<div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+
 			<img
-				src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png"
-				alt="mockup"
+				src={printerImage}
+				alt="3D Printer"
 			/>
 		</div>
 	</div>

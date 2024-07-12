@@ -1,4 +1,4 @@
-<div class="bg-primary">
+<div class="bg-primary font-montserrat">
 	<!-- Mobile menu - Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
 	<div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
 		<!--

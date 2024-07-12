@@ -1,4 +1,7 @@
 <script>
+  import Footer from '$lib/components/Footer/Footer.svelte';
+  import Navbar from '$lib/components/Navbar/Navbar.svelte';
+	import Header from '$lib/components/Header.svelte';
 	import '../app.css';
 </script>
 
@@ -24,7 +27,13 @@
 	/>
 </svelte:head>
 
-<slot />
+<body
+	data-theme="retro"
+	class="bg-[#EDE9D0] text-[#6E3729] font-montserrat leading-normal text-base tracking-normal"
+>
+	<Navbar />
+	<Header />
 
-<style>
-</style>
+		<slot />
+	<Footer />
+</body>

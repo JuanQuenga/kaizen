@@ -70,7 +70,7 @@
 
 					<!-- Logo -->
 					<div class="flex flex-1 items-center">
-						<a href="#" class=" text-4xl text-primary hover:text-secondary self-stretch ">
+						<a href="/" class=" text-4xl text-primary hover:text-secondary self-stretch ">
 							KAIZEN
 						</a>
 					</div>

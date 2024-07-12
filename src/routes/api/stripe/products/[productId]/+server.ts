@@ -8,6 +8,7 @@ import { STRIPE_SECRET_KEY } from "$env/static/private";
 export async function GET({ url }) {
   const baseUrl = "https://api.stripe.com/v1/products";
   const fullUrl = new URL(baseUrl);
+  fullUrl.searchParams.append("expand[]", "data.default_price");
 
   // Add any additional query params from the request
   for (const [key, value] of url.searchParams.entries()) {

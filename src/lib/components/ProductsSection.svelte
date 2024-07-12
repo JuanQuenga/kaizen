@@ -22,7 +22,7 @@
       }
 
       const data = await response.json();
-      console.log('Fetched data:', data);
+      // console.log('Fetched data:', data);
       products = data.data;
     } catch (e: any) {
       console.error('There was a problem fetching the products:', e);
@@ -51,6 +51,7 @@
 				{#each products as product (product.id)}
 					<ProductItem
 						name={product.name}
+						href={`/products/${product.id}`}
 						src={product.images[0]}
 						price={product.default_price?.unit_amount}
 					/>

@@ -7,16 +7,5 @@
 	import ProductsSection from '$lib/components/ProductsSection.svelte';
 </script>
 
-<body
-	data-theme="retro"
-	class="bg-[#EDE9D0] text-[#6E3729] font-montserrat leading-normal text-base tracking-normal"
->
-	<Navbar />
-
-	<Header />
 
 	<ProductsSection />
-
-
-	<Footer />
-</body>

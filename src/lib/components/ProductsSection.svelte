@@ -50,7 +50,6 @@
 						name={product.name}
 						src={product.images[0]}
 						price={product.default_price?.unit_amount}
-						description={product.description}
 					/>
 				{/each}
 			</div>

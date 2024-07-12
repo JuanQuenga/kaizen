@@ -6,8 +6,6 @@ import { STRIPE_SECRET_KEY } from "$env/static/private";
  */
 
 export async function GET({ url }) {
-  console.log("fetch");
-  console.log(url);
   const baseUrl = "https://api.stripe.com/v1/products";
   const fullUrl = new URL(baseUrl);
 
@@ -15,9 +13,6 @@ export async function GET({ url }) {
   for (const [key, value] of url.searchParams.entries()) {
     fullUrl.searchParams.append(key, value);
   }
-
-  console.log(fullUrl.toString());
-  console.log("full ^");
 
   // Fetch products from Stripe API
   try {

@@ -1,7 +1,6 @@
 <script>
   import Footer from '$lib/components/Footer/Footer.svelte';
   import Navbar from '$lib/components/Navbar/Navbar.svelte';
-	import Header from '$lib/components/Header.svelte';
 	import '../app.css';
 </script>
 
@@ -32,8 +31,6 @@
 	class="bg-[#EDE9D0] text-[#6E3729] font-montserrat leading-normal text-base tracking-normal"
 >
 	<Navbar />
-	<Header />
-
-		<slot />
+	<slot />
 	<Footer />
 </body>

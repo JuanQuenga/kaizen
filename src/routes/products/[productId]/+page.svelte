@@ -1,23 +1,20 @@
 <script lang="ts">
-  import type { StripeProduct, StripeProductResponse } from './+page';
+  import Header from '$lib/components/Header.svelte';
+import ColorPicker from '$lib/components/Products/ColorPicker.svelte';
+	import type { StripeProduct, StripeProductResponse } from './+page';
 	export let data: StripeProductResponse;
 	const product: StripeProduct = data.data[0];
 </script>
 
-<!--
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/typography'),
-    ],
-  }
-  ```
--->
+<Header />
+
+<!-- <Header>
+		<div class="flex">
+			<h1 class="flex-grow text-xl font-medium text-white">{product.name}</h1>
+			<p class="text-xl font-medium text-primary">${product.default_price.unit_amount/100}</p>
+		</div>
+</Header> -->
+
 <div class="bg-background">
   <div class="pb-16 pt-6 sm:pb-24">
 
@@ -28,7 +25,6 @@
             <h1 class="text-xl font-medium text-white">{product.name}</h1>
             <p class="text-xl font-medium text-primary">${product.default_price.unit_amount/100}</p>
           </div>
-         
         </div>
 
         <!-- Image gallery -->
@@ -44,41 +40,19 @@
 
         <div class="mt-8 lg:col-span-5">
           <form>
-            <!-- Color picker -->
-            <div>
-              <h2 class="text-sm font-medium text-base">Color</h2>
-
-              <fieldset aria-label="Choose a color" class="mt-2">
-                <div class="flex items-center space-x-3">
-                  <!-- Active and Checked: "ring ring-offset-1" -->
-                  <label aria-label="Black" class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 ring-gray-900 focus:outline-none">
-                    <input type="radio" name="color-choice" value="Black" class="sr-only">
-                    <span aria-hidden="true" class="h-8 w-8 rounded-full border border-black border-opacity-10 bg-gray-900"></span>
-                  </label>
-                  <!-- Active and Checked: "ring ring-offset-1" -->
-                  <label aria-label="Heather Grey" class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 ring-gray-400 focus:outline-none">
-                    <input type="radio" name="color-choice" value="Heather Grey" class="sr-only">
-                    <span aria-hidden="true" class="h-8 w-8 rounded-full border border-black border-opacity-10 bg-gray-400"></span>
-                  </label>
-                </div>
-              </fieldset>
-            </div>
+            <!-- <ColorPicker /> -->
 
 						 <!-- Product details -->
-          <div class="mt-10">
-            <h2 class="text-sm font-medium text-base">Description</h2>
+						<div class="mt-10">
+							<h2 class="text-sm font-medium text-base">Description</h2>
 
-            <div class="prose prose-sm mt-4 text-gray-500">
-              <p>{product.description}</p>
-            </div>
-          </div>
+							<div class="prose prose-sm mt-4 text-gray-500">
+								<p>{product.description}</p>
+							</div>
+						</div>
 
             <button type="submit" class="mt-8 text-background flex w-full items-center justify-center rounded-md border border-transparent bg-primary px-8 py-3 font-medium uppercase hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-navigation focus:ring-offset-2">Add to cart</button>
           </form>
-
-         
-
-
         </div>
       </div>
     </div>

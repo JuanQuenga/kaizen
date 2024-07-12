@@ -48,7 +48,7 @@
 					<div class="space-y-6 border-t border-gray-200 px-4 py-6">
 						{#each navigationLinks as link}
 							<div class="flow-root">
-								<a href={link.url} class="-m-2 block p-2 font-medium text-base uppercase text-xl">{link.title}</a>
+								<a href={link.url} class="-m-2 block p-2 font-medium text-white uppercase text-xl">{link.title}</a>
 							</div>
 						{/each}
 					</div>

@@ -1,5 +1,8 @@
 {
 	"/": [],
 	"/about": [],
+	"/api/stripe/products": [
+		"src/routes/api/stripe/products/+server.ts"
+	],
 	"/test": []
 }

@@ -3,3 +3,5 @@
 
 #node modules for grunt
 node_modules
+
+.env

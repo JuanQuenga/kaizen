@@ -26,6 +26,7 @@
  * ```
  */
 declare module '$env/static/private' {
+	export const STRIPE_SECRET_KEY: string;
 	export const MANPATH: string;
 	export const TERM_PROGRAM: string;
 	export const NODE: string;
@@ -116,6 +117,7 @@ declare module '$env/static/public' {
  */
 declare module '$env/dynamic/private' {
 	export const env: {
+		STRIPE_SECRET_KEY: string;
 		MANPATH: string;
 		TERM_PROGRAM: string;
 		NODE: string;

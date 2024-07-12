@@ -19,7 +19,7 @@
 	{#if isOpen}
 		<div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
 
-			<div transition:fade={{ duration: 300 }} class="fixed inset-0 bg-black bg-opacity-25" aria-hidden="true"></div>
+			<div transition:fade={{ duration: 300 }} class="fixed inset-0 bg-black bg-opacity-75" aria-hidden="true"></div>
 
 			<div transition:fly={{ x: -300, duration: 300 }} class="fixed inset-0 z-40 flex">
 				<div class="relative flex w-full max-w-xs flex-col overflow-y-auto bg-navigation pb-12 shadow-xl">
@@ -45,7 +45,7 @@
 					</div>
 
 					<!-- Links -->
-					<div class="space-y-6 border-t border-gray-200 px-4 py-6">
+					<div class="space-y-6 border-t border-primary px-4 py-6">
 						{#each navigationLinks as link}
 							<div class="flow-root">
 								<a href={link.url} class="-m-2 block p-2 font-medium text-white uppercase text-xl">{link.title}</a>

@@ -17,58 +17,57 @@
 <div class=" font-montserrat">
 	<!-- Mobile Menu -->
 	{#if isOpen}
-	<div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
+		<div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
 
-		<div class="fixed inset-0 bg-black bg-opacity-25" aria-hidden="true"></div>
+			<div transition:fade={{ duration: 300 }} class="fixed inset-0 bg-black bg-opacity-25" aria-hidden="true"></div>
 
-		<div class="fixed inset-0 z-40 flex">
-			<div class="relative flex w-full max-w-xs flex-col overflow-y-auto bg-navigation pb-12 shadow-xl">
-				<div class="flex px-4 pb-5 pt-5">
-					<button
-						type="button"
-						on:click={toggleMenu}
-						class="-m-2 inline-flex items-center justify-center rounded-md p-2 text-primary"
-					>
-						<span class="sr-only">Close menu</span>
-						<svg
-							class="h-6 w-6"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke-width="1.5"
-							stroke="currentColor"
-							aria-hidden="true"
+			<div transition:fly={{ x: -300, duration: 300 }} class="fixed inset-0 z-40 flex">
+				<div class="relative flex w-full max-w-xs flex-col overflow-y-auto bg-navigation pb-12 shadow-xl">
+					<div class="flex px-4 pb-5 pt-5">
+						<button
+							type="button"
+							on:click={toggleMenu}
+							class="-m-2 inline-flex items-center justify-center rounded-md p-2 text-primary"
 						>
-							<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-						</svg>
-						
-					</button>
-				</div>
+							<span class="sr-only">Close menu</span>
+							<svg
+								class="h-6 w-6"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke-width="1.5"
+								stroke="currentColor"
+								aria-hidden="true"
+							>
+								<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+							</svg>
+							
+						</button>
+					</div>
 
-				<!-- Links -->
-				<div class="space-y-6 border-t border-gray-200 px-4 py-6">
-					{#each navigationLinks as link}
-						<div class="flow-root">
-							<a href={link.url} class="-m-2 block p-2 font-medium text-base uppercase text-xl">{link.title}</a>
-						</div>
-					{/each}
-				</div>
+					<!-- Links -->
+					<div class="space-y-6 border-t border-gray-200 px-4 py-6">
+						{#each navigationLinks as link}
+							<div class="flow-root">
+								<a href={link.url} class="-m-2 block p-2 font-medium text-base uppercase text-xl">{link.title}</a>
+							</div>
+						{/each}
+					</div>
 
-				<!-- Currency -->
-				<!-- <div class="border-t border-gray-200 px-4 py-6">
-					<a href="#" class="-m-2 flex items-center p-2">
-						<img
-							src="https://tailwindui.com/img/flags/flag-canada.svg"
-							alt=""
-							class="block h-auto w-5 flex-shrink-0"
-						/>
-						<span class="ml-3 block text-base font-medium text-gray-900">CAD</span>
-						<span class="sr-only">, change currency</span>
-					</a>
-				</div> -->
+					<!-- Currency -->
+					<!-- <div class="border-t border-gray-200 px-4 py-6">
+						<a href="#" class="-m-2 flex items-center p-2">
+							<img
+								src="https://tailwindui.com/img/flags/flag-canada.svg"
+								alt=""
+								class="block h-auto w-5 flex-shrink-0"
+							/>
+							<span class="ml-3 block text-base font-medium text-gray-900">CAD</span>
+							<span class="sr-only">, change currency</span>
+						</a>
+					</div> -->
+				</div>
 			</div>
 		</div>
-	</div>
-
 	{/if}
 
 

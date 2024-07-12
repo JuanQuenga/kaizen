@@ -9,7 +9,7 @@
 				class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3"
 			>
 				<a
-					class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl"
+					class="uppercase tracking-wide no-underline hover:no-underline font-bold text-secondary text-2xl"
 					href="#"
 				>
 					Latest Products

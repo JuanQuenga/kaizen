@@ -12,9 +12,9 @@
 			<img class="h-full w-full object-cover absolute" {src} alt={name} />
 		</div>
 		<div class="pt-3 flex items-center justify-between">
-			<p class="">{name}</p>
+			<p class="text-secondary font-bold text-lg">{name}</p>
 			<svg
-				class="h-6 w-6 fill-current text-text hover:text-primary"
+				class="h-6 w-6 fill-current text-accent hover:text-primary"
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 24 24"
 			>
@@ -23,6 +23,6 @@
 				/>
 			</svg>
 		</div>
-		<p class="pt-1 text-gray-900">{price}</p>
+		<p class="pt-1 text-accent">{price}</p>
 	</a>
 </div>

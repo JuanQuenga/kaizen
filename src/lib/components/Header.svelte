@@ -10,7 +10,7 @@
 				 Smart Home Innovation & Maker Essentials
 			</h1>
 			<p
-				class="max-w-2xl mb-6 font-light text-base lg:mb-8 md:text-lg lg:text-xl "
+				class="max-w-2xl font-light text-base lg:mb-8 md:text-lg lg:text-xl "
 			>
 				We create innovative smart home products using advanced manufacturing techniques, while also offering accessories for tools like XTOOL, CNCs, and 3D printers.
 			</p>

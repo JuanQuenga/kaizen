@@ -3,7 +3,7 @@
 	export let srText = 'Social Link';
 </script>
 
-<a {href} class="text-base hover:text-primary">
+<a {href} class="text-primary hover:text-secondary">
 				<span class="sr-only">{srText}</span>
 	<slot />
 		

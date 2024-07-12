@@ -1,10 +1,17 @@
 <script>
   import { fade, fly } from 'svelte/transition';
+  import Cart from '../ShoppingCart/Cart.svelte';
+  import MobileNavbar from './MobileNavbar.svelte';
 
-  let isOpen = false;
+	let isCartOpen = false;
+  function toggleCart() {
+    isCartOpen = !isCartOpen;
+  }
 
+
+  let isMenoOpen = false;
   function toggleMenu() {
-    isOpen = !isOpen;
+    isMenoOpen = !isMenoOpen;
   }
 
 	const navigationLinks = [
@@ -14,60 +21,23 @@
 	];
 </script>
 
-<div class=" font-montserrat">
+<div class="font-montserrat">
+	<!-- Cart -->
+	{#if isCartOpen}
+		<Cart toggleCart={toggleCart} />
+	{/if}
+
 	<!-- Mobile Menu -->
-	{#if isOpen}
-		<div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
-
-			<div transition:fade={{ duration: 300 }} class="fixed inset-0 bg-black bg-opacity-75" aria-hidden="true"></div>
-
-			<div transition:fly={{ x: -300, duration: 300 }} class="fixed inset-0 z-40 flex">
-				<div class="relative flex w-full max-w-xs flex-col overflow-y-auto bg-navigation pb-12 shadow-xl">
-					<div class="flex px-4 pb-5 pt-5">
-						<button
-							type="button"
-							on:click={toggleMenu}
-							class="-m-2 inline-flex items-center justify-center rounded-md p-2 text-primary"
-						>
-							<span class="sr-only">Close menu</span>
-							<svg
-								class="h-6 w-6"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								aria-hidden="true"
-							>
-								<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-							</svg>
-							
-						</button>
+	{#if isMenoOpen}
+		<MobileNavbar toggleMenu={toggleMenu}>
+			<div class="space-y-6 border-t border-primary px-4 py-6">
+				{#each navigationLinks as link}
+					<div class="flow-root">
+						<a href={link.url} class="-m-2 block p-2 font-medium text-white uppercase text-xl">{link.title}</a>
 					</div>
-
-					<!-- Links -->
-					<div class="space-y-6 border-t border-primary px-4 py-6">
-						{#each navigationLinks as link}
-							<div class="flow-root">
-								<a href={link.url} class="-m-2 block p-2 font-medium text-white uppercase text-xl">{link.title}</a>
-							</div>
-						{/each}
-					</div>
-
-					<!-- Currency -->
-					<!-- <div class="border-t border-gray-200 px-4 py-6">
-						<a href="#" class="-m-2 flex items-center p-2">
-							<img
-								src="https://tailwindui.com/img/flags/flag-canada.svg"
-								alt=""
-								class="block h-auto w-5 flex-shrink-0"
-							/>
-							<span class="ml-3 block text-base font-medium text-gray-900">CAD</span>
-							<span class="sr-only">, change currency</span>
-						</a>
-					</div> -->
-				</div>
+				{/each}
 			</div>
-		</div>
+		</MobileNavbar>
 	{/if}
 
 
@@ -99,9 +69,11 @@
 
 
 					<!-- Logo -->
-					<a href="#" class="flex text-4xl text-primary hover:text-secondary self-stretch flex-1 items-center">
-						KAIZEN
-					</a>
+					<div class="flex flex-1 items-center">
+						<a href="#" class=" text-4xl text-primary hover:text-secondary self-stretch ">
+							KAIZEN
+						</a>
+					</div>
 
 					<!-- Links -->
 					<div class="hidden lg:block">
@@ -118,7 +90,7 @@
 					<!-- Cart -->
 					<div class="flex flex-1 items-center justify-end">
 						<div class="ml-4 flow-root lg:ml-6">
-							<a href="#" class="group -m-2 flex items-center p-2">
+							<button on:click={toggleCart} class="group -m-2 flex items-center p-2">
 								<svg
 									class="h-6 w-6 flex-shrink-0 text-primary group-hover:text-secondary"
 									fill="none"
@@ -137,7 +109,7 @@
 									>0</span
 								>
 								<span class="sr-only">items in cart, view bag</span>
-							</a>
+							</button>
 						</div>
 					</div>
 				</div>

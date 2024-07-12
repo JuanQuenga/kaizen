@@ -1,0 +1,5 @@
+		<p
+			class="flex h-10 items-center justify-center bg-primary px-4 text-sm text-background sm:px-6 lg:px-8 font-bold uppercase"
+		>
+			<slot />
+		</p>

@@ -1,34 +1,33 @@
-<div class=" font-montserrat">
-	<!-- Mobile menu - Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
-	<div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
-		<!--
-      Off-canvas menu backdrop, show/hide based on off-canvas menu state.
+<script>
+  import { fade, fly } from 'svelte/transition';
 
-      Entering: "transition-opacity ease-linear duration-300"
-        From: "opacity-0"
-        To: "opacity-100"
-      Leaving: "transition-opacity ease-linear duration-300"
-        From: "opacity-100"
-        To: "opacity-0"
-    -->
+  let isOpen = false;
+
+  function toggleMenu() {
+    isOpen = !isOpen;
+  }
+
+	const navigationLinks = [
+		{ title: 'About', url: '/about' },
+		{ title: 'Store', url: '/store' },
+		{ title: 'Contact', url: '/contact' }
+	];
+</script>
+
+<div class=" font-montserrat">
+	<!-- Mobile Menu -->
+	{#if isOpen}
+	<div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
+
 		<div class="fixed inset-0 bg-black bg-opacity-25" aria-hidden="true"></div>
 
 		<div class="fixed inset-0 z-40 flex">
-			<!--
-        Off-canvas menu, show/hide based on off-canvas menu state.
-
-        Entering: "transition ease-in-out duration-300 transform"
-          From: "-translate-x-full"
-          To: "translate-x-0"
-        Leaving: "transition ease-in-out duration-300 transform"
-          From: "translate-x-0"
-          To: "-translate-x-full"
-      -->
-			<div class="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
-				<div class="flex px-4 pb-2 pt-5">
+			<div class="relative flex w-full max-w-xs flex-col overflow-y-auto bg-navigation pb-12 shadow-xl">
+				<div class="flex px-4 pb-5 pt-5">
 					<button
 						type="button"
-						class="-m-2 inline-flex items-center justify-center rounded-md p-2 text-[#004F6E]"
+						on:click={toggleMenu}
+						class="-m-2 inline-flex items-center justify-center rounded-md p-2 text-primary"
 					>
 						<span class="sr-only">Close menu</span>
 						<svg
@@ -41,20 +40,21 @@
 						>
 							<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
 						</svg>
+						
 					</button>
 				</div>
 
 				<!-- Links -->
 				<div class="space-y-6 border-t border-gray-200 px-4 py-6">
-					<div class="flow-root">
-						<a href="#" class="-m-2 block p-2 font-medium text-gray-900">Company</a>
-					</div>
-					<div class="flow-root">
-						<a href="#" class="-m-2 block p-2 font-medium text-gray-900">Stores</a>
-					</div>
+					{#each navigationLinks as link}
+						<div class="flow-root">
+							<a href={link.url} class="-m-2 block p-2 font-medium text-base uppercase text-xl">{link.title}</a>
+						</div>
+					{/each}
 				</div>
 
-				<div class="border-t border-gray-200 px-4 py-6">
+				<!-- Currency -->
+				<!-- <div class="border-t border-gray-200 px-4 py-6">
 					<a href="#" class="-m-2 flex items-center p-2">
 						<img
 							src="https://tailwindui.com/img/flags/flag-canada.svg"
@@ -64,26 +64,25 @@
 						<span class="ml-3 block text-base font-medium text-gray-900">CAD</span>
 						<span class="sr-only">, change currency</span>
 					</a>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
 
+	{/if}
+
+
 	<header class="relative bg-navigation">
-		<!-- <p
-			class="flex h-10 items-center justify-center bg-primary px-4 text-sm text-white sm:px-6 lg:px-8 font-bold uppercase"
-		>
-			Free delivery on orders over $50
-		</p> -->
+
 		<nav aria-label="Top" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="border-b border-gray-200">
 				<div class="flex h-16 items-center justify-between">
 					<div class="flex flex-1 items-center lg:hidden">
 						<!-- Mobile menu toggle, controls the 'mobileMenuOpen' state. -->
-						<button type="button" class="-ml-2 rounded-md bg-white p-2 text-[#004F6E]">
+						<button type="button" on:click={toggleMenu} class="-ml-2 rounded-md bg-transparent p-2 text-primary">
 							<span class="sr-only">Open menu</span>
 							<svg
-								class="h-6 w-6"
+								class="h-8 w-8"
 								fill="none"
 								viewBox="0 0 24 24"
 								stroke-width="1.5"
@@ -97,56 +96,28 @@
 								/>
 							</svg>
 						</button>
-
-						<a href="#" class="ml-2 p-2 text-[#004F6E] hover:text-gray-500">
-							<span class="sr-only">Search</span>
-							<svg
-								class="h-6 w-6"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke-width="1.5"
-								stroke="currentColor"
-								aria-hidden="true"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-								/>
-							</svg>
-						</a>
 					</div>
 
 
 					<!-- Logo -->
 					<a href="#" class="flex text-4xl text-primary hover:text-secondary self-stretch flex-1 items-center">
-						<!-- <span class="sr-only">KAIZEN</span>
-						<img
-							class="h-8 w-auto"
-							src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-							alt=""
-						/> -->
 						KAIZEN
 					</a>
 
-					<!-- Flyout menus -->
+					<!-- Links -->
 					<div class="hidden lg:block">
 						<div class="flex h-full space-x-8 ">
-<a href="#" class="flex items-center text-xl font-medium  hover:text-primary uppercase"
-								>About</a
+							{#each navigationLinks as link}
+							<a href={link.url} class="flex items-center text-xl font-medium  hover:text-primary uppercase"
+								>{link.title}</a
 							>
-							<a href="#" class="flex items-center text-xl font-medium hover:text-primary uppercase"
-								>Inventory</a
-							>
-							<a href="#" class="flex items-center text-xl font-medium  hover:text-primary uppercase"
-								>Contact</a
-							>
+							{/each}
 						</div>
 					</div>
 
 
+					<!-- Cart -->
 					<div class="flex flex-1 items-center justify-end">
-						<!-- Cart -->
 						<div class="ml-4 flow-root lg:ml-6">
 							<a href="#" class="group -m-2 flex items-center p-2">
 								<svg

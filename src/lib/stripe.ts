@@ -1,9 +1,20 @@
 import Stripe from "stripe";
 import type { CartItem } from "$lib/stores/cart";
 
-const stripe = new Stripe(import.meta.env.STRIPE_SECRET_KEY);
+let stripe: Stripe | null = null;
 
-export async function createCheckoutSession(items: CartItem[]) {
+export function initStripe(secretKey: string) {
+  stripe = new Stripe(secretKey);
+}
+
+export async function createCheckoutSession(
+  items: CartItem[],
+  baseUrl: string
+) {
+  if (!stripe) {
+    throw new Error("Stripe has not been initialized");
+  }
+
   const lineItems = items.map((item) => ({
     price_data: {
       currency: "usd",
@@ -19,8 +30,8 @@ export async function createCheckoutSession(items: CartItem[]) {
     payment_method_types: ["card"],
     line_items: lineItems,
     mode: "payment",
-    success_url: `${import.meta.env.VITE_BASE_URL}/success`,
-    cancel_url: `${import.meta.env.VITE_BASE_URL}/cancel`,
+    success_url: `${baseUrl}/checkout/success`,
+    cancel_url: `${baseUrl}/checkout/cancel`,
   });
 
   return session;

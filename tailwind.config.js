@@ -7,6 +7,7 @@ export default {
         primary: "#66FCF1",
         secondary: "#45A29E",
         base: "#c5c6c7",
+        default: "#c5c6c7",
         background: "#0b0c10",
         navigation: "#1F2833",
       },

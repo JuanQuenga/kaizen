@@ -18,10 +18,22 @@
 
   async function checkout() {
     try {
-      const session = await createCheckoutSession(items);
-      window.location.href = session.url
+      const response = await fetch('/api/stripe/checkout/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(items),
+      });
+      const { url } = await response.json();
+      if (url) {
+        window.location.href = url;
+      } else {
+        throw new Error('No checkout URL received');
+      }
     } catch (error) {
       console.error('Error creating checkout session:', error);
+      // Handle error (e.g., show an error message to the user)
     }
   }
 
@@ -38,7 +50,7 @@
         <button
           type="button"
           on:click={toggleCart}
-          class="-m-2 inline-flex items-center justify-center rounded-md p-2 text-primary"
+          class="-m-2 inline-flex items-center justify-center p-2 text-background bg-primary"
         >
           <span class="sr-only">Close menu</span>
           <svg
@@ -55,7 +67,10 @@
       </div>
 
       {#if items.length === 0}
-        <p>Your cart is empty</p>
+      <div class="space-y-6 border-t border-b border-primary px-2 mx-2 py-6">
+        <p class="text-xl  text-center">Your cart is empty</p>
+
+      </div>
       {:else}
         <!-- Cart Items -->
         <div class="space-y-6 border-t border-primary px-2 mx-2 py-6">

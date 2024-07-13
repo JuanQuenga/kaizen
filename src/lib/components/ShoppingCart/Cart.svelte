@@ -1,12 +1,23 @@
 <script lang='ts'>
+  import { onMount } from 'svelte';
   import { fly, fade } from 'svelte/transition';
   import { cart, type CartItem } from '$lib/stores/cart';
-  import { createCheckoutSession } from '$lib/stripe';
 
   let items: CartItem[];
   cart.subscribe(value => {
     items = value;
   });
+
+   onMount(() => {
+    // Subscribe to the cart store
+    const unsubscribe = cart.subscribe(value => {
+      items = value;
+    });
+
+    // Unsubscribe when the component is destroyed
+    return unsubscribe;
+  });
+
 
   function removeItem(id: string) {
     cart.removeItem(id);

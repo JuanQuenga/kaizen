@@ -1,13 +1,17 @@
-<script>
-  import { fade, fly } from 'svelte/transition';
+<script lang='ts'>
   import Cart from '../ShoppingCart/Cart.svelte';
   import MobileNavbar from './MobileNavbar.svelte';
+	import { cart, type CartItem } from '$lib/stores/cart';
+
+	let items: CartItem[];
+  cart.subscribe(value => {
+    items = value;
+  });
 
 	let isCartOpen = false;
   function toggleCart() {
     isCartOpen = !isCartOpen;
   }
-
 
   let isMenoOpen = false;
   function toggleMenu() {
@@ -106,7 +110,7 @@
 									/>
 								</svg>
 								<span class="ml-2 text-sm font-medium text-primary group-hover:text-secondary"
-									>0</span
+									>{items.length}</span
 								>
 								<span class="sr-only">items in cart, view bag</span>
 							</button>

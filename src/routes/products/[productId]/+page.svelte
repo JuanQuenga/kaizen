@@ -1,7 +1,20 @@
 <script lang="ts">
   import Header from '$lib/components/Header.svelte';
-import ColorPicker from '$lib/components/Products/ColorPicker.svelte';
+	import ColorPicker from '$lib/components/Products/ColorPicker.svelte';
 	import type { StripeProduct, StripeProductResponse } from './+page';
+	import { cart } from '$lib/stores/cart';
+
+  function addToCart(product: StripeProduct) {
+		const cartItem = {
+      id: product.id,
+      name: product.name,
+      price: product.default_price.unit_amount/100,
+      quantity: 1
+    };
+		console.log(JSON.stringify(cartItem));
+		cart.addItem(cartItem);
+  }
+
 	export let data: StripeProductResponse;
 	const product: StripeProduct = data.data[0];
 </script>
@@ -51,7 +64,7 @@ import ColorPicker from '$lib/components/Products/ColorPicker.svelte';
 							</div>
 						</div>
 
-            <button type="submit" class="mt-8 text-background flex w-full items-center justify-center rounded-md border border-transparent bg-primary px-8 py-3 font-medium uppercase hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-navigation focus:ring-offset-2">Add to cart</button>
+            <button on:click={() => addToCart(product)} type="submit" class="mt-8 text-background flex w-full items-center justify-center rounded-md border border-transparent bg-primary px-8 py-3 font-medium uppercase hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-navigation focus:ring-offset-2">Add to cart</button>
           </form>
         </div>
       </div>

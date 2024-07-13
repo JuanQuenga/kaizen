@@ -1,7 +1,30 @@
 <script lang='ts'>
   import { fly, fade } from 'svelte/transition';
-  // import { cart } from '$lib/stores';
-  import { derived } from 'svelte/store';
+  import { cart, type CartItem } from '$lib/stores/cart';
+  import { createCheckoutSession } from '$lib/stripe';
+
+  let items: CartItem[];
+  cart.subscribe(value => {
+    items = value;
+  });
+
+  function removeItem(id: string) {
+    cart.removeItem(id);
+  }
+
+  function updateQuantity(id: string, quantity: number) {
+    cart.updateQuantity(id, quantity);
+  }
+
+  async function checkout() {
+    try {
+      const session = await createCheckoutSession(items);
+      window.location.href = session.url
+    } catch (error) {
+      console.error('Error creating checkout session:', error);
+    }
+  }
+
   export let toggleCart;
 </script>
 
@@ -10,7 +33,7 @@
     transition:fly={{ x: 300, duration: 300 }} 
     class="fixed inset-0 z-40 flex justify-end"
   >
-    <div class="relative flex w-full max-w-xs flex-col overflow-y-auto bg-navigation pb-12 shadow-xl">
+    <div class="relative flex w-full max-w-md flex-col overflow-y-auto bg-navigation pb-12 shadow-xl">
       <div class="flex px-4 pb-5 pt-5 justify-end">
         <button
           type="button"
@@ -31,19 +54,59 @@
         </button>
       </div>
 
-      <!-- Links -->
-      <div class="space-y-6 border-t border-primary px-2 mx-2 py-6">
-        <div class="flow-root">
-          <a href='#' class="-m-2 block p-2 font-medium text-white uppercase text-xl">Coming Soon</a>
+      {#if items.length === 0}
+        <p>Your cart is empty</p>
+      {:else}
+        <!-- Cart Items -->
+        <div class="space-y-6 border-t border-primary px-2 mx-2 py-6">
+           <ul class="space-y-4">
+            {#each items as item}
+              <li class="flex-col">
+                <div class="flex justify-between">
+                  <h3 class="font-semibold">{item.name}</h3>
+                  <p class="text-secondary">${item.price.toFixed(2)}</p>
+                </div>
+                <div class='flex items-center justify-between'>
+                   <button 
+                    class="mt-4 text-red-500"
+                    on:click={() => removeItem(item.id)}
+                  >
+                    Remove
+                  </button>
+                  <div class="">
+                    <button 
+                    class="bg-secondary px-3 py-1 text-white font-bold"
+                    on:click={() => updateQuantity(item.id, Math.max(1, item.quantity - 1))}>
+                      -
+                    </button>
+                    <span class="px-2">{item.quantity}</span>
+                    <button 
+                      class="bg-secondary px-3 py-1 text-white font-bold"
+                      on:click={() => updateQuantity(item.id, item.quantity + 1)}
+                    >
+                      +
+                    </button>
+                  </div>
+                 
+                </div>
+              </li>
+            {/each}
+          </ul>
         </div>
-      </div>
 
-      <!-- Checkout Button -->
-      <div class="border-t border-primary mx-2 py-6">
-        <button class=" flex items-center p-2 bg-primary border-b-2 border-secondary w-full font-bold text-xl text-background">
-         <div class="mx-auto">CHECKOUT</div>
-        </button>
-      </div>
+       
+
+        <!-- Checkout Button & Total -->
+        <div class="border-t border-primary mx-2 py-6">
+          <p class="text-xl font-bold text-right mb-4">
+            Total: ${items.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}
+          </p>
+
+          <button on:click={checkout} class=" flex items-center p-2 bg-primary border-b-2 border-secondary w-full font-bold text-xl text-background">
+          <div class="mx-auto">CHECKOUT</div>
+          </button>
+        </div>
+      {/if}
     </div>
   </div>
 

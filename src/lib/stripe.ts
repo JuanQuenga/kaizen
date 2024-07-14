@@ -35,6 +35,9 @@ export async function createCheckoutSession(
     shipping_address_collection: {
       allowed_countries: ["US"],
     },
+    automatic_tax: {
+      enabled: true,
+    },
     shipping_options: [
       {
         shipping_rate_data: {

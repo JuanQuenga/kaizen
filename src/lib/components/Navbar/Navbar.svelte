@@ -75,7 +75,7 @@
 					<!-- Logo -->
 					<div class="flex flex-1 items-center">
 						<a href="/" class=" text-4xl text-primary hover:text-secondary self-stretch ">
-							BUMBLEFUCK
+							KAIZEN
 						</a>
 					</div>
 

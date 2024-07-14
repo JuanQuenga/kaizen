@@ -19,7 +19,6 @@
 	const product: StripeProduct = data.data[0];
 </script>
 
-<Header />
 
 <!-- <Header>
 		<div class="flex">

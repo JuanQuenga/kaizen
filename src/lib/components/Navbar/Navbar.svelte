@@ -47,10 +47,10 @@
 
 	<header class="relative bg-navigation">
 
-		<nav aria-label="Top" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="border-b border-gray-200">
+		<nav aria-label="Top" class="mx-auto max-w-7xl px-2">
+			<div class="">
 				<div class="flex h-16 items-center justify-between">
-					<div class="flex flex-1 items-center lg:hidden">
+					<div class="flex flex-1 items-center md:hidden">
 						<!-- Mobile menu toggle, controls the 'mobileMenuOpen' state. -->
 						<button type="button" on:click={toggleMenu} class="-ml-2 rounded-md bg-transparent p-2 text-primary">
 							<span class="sr-only">Open menu</span>
@@ -80,7 +80,7 @@
 					</div>
 
 					<!-- Links -->
-					<div class="hidden lg:block">
+					<div class="hidden md:block">
 						<div class="flex h-full space-x-8 ">
 							{#each navigationLinks as link}
 							<a href={link.url} class="flex items-center text-xl font-medium  hover:text-primary uppercase"

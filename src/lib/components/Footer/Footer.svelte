@@ -3,7 +3,7 @@
 
 </script>
 <footer class="bg-navigation">
-	<div class="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
+	<div class="mx-auto max-w-7xl px-4 py-12 md:flex md:items-center md:justify-between ">
 		<div class="flex justify-center space-x-6 md:order-2">
 			<SocialLink srText='Facebook'>
 				<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

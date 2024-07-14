@@ -32,7 +32,53 @@ export async function createCheckoutSession(
     mode: "payment",
     success_url: `${baseUrl}/checkout/success`,
     cancel_url: `${baseUrl}/checkout/cancel`,
+    shipping_address_collection: {
+      allowed_countries: ["US"],
+    },
+    shipping_options: [
+      {
+        shipping_rate_data: {
+          type: "fixed_amount",
+          fixed_amount: {
+            amount: 500, // $5.00
+            currency: "usd",
+          },
+          display_name: "Standard Shipping",
+          delivery_estimate: {
+            minimum: {
+              unit: "business_day",
+              value: 5,
+            },
+            maximum: {
+              unit: "business_day",
+              value: 7,
+            },
+          },
+        },
+      },
+    ],
   });
 
   return session;
+}
+
+export interface ShippingOption {
+  shipping_rate_data: {
+    type: "fixed_amount";
+    fixed_amount: {
+      amount: number;
+      currency: string;
+    };
+    display_name: string;
+    delivery_estimate?: {
+      minimum: {
+        unit: "business_day" | "day" | "hour" | "month" | "week";
+        value: number;
+      };
+      maximum?: {
+        unit: "business_day" | "day" | "hour" | "month" | "week";
+        value: number;
+      };
+    };
+  };
 }

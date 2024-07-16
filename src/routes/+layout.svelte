@@ -26,11 +26,12 @@
 	/>
 </svelte:head>
 
-<body
+<body 
 	data-theme="retro"
-	class="bg-background text-default font-montserrat leading-normal tracking-normal"
+	class="bg-gradient-to-b from-background to-primary text-default font-montserrat leading-normal tracking-normal"
 >
 	<Navbar />
+
 	<slot />
 	<Footer />
 </body>

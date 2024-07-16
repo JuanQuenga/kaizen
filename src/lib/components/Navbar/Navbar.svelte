@@ -25,7 +25,7 @@
 	];
 </script>
 
-<div class="font-montserrat">
+<div class="font-montserrat fixed block w-full z-10">
 	<!-- Cart -->
 	{#if isCartOpen}
 		<Cart toggleCart={toggleCart} />
@@ -45,7 +45,7 @@
 	{/if}
 
 
-	<header class="relative bg-navigation">
+	<header class="relative bg-transparent">
 
 		<nav aria-label="Top" class="mx-auto max-w-7xl px-2">
 			<div class="">
@@ -74,7 +74,7 @@
 
 					<!-- Logo -->
 					<div class="flex flex-1 items-center">
-						<a href="/" class=" text-4xl text-primary hover:text-secondary self-stretch ">
+						<a href="/" class=" text-4xl text-primary hover:text-white self-stretch ">
 							KAIZEN
 						</a>
 					</div>
@@ -83,7 +83,7 @@
 					<div class="hidden md:block">
 						<div class="flex h-full space-x-8 ">
 							{#each navigationLinks as link}
-							<a href={link.url} class="flex items-center text-xl font-medium  hover:text-primary uppercase"
+							<a href={link.url} class="flex items-center text-xl font-medium text-white hover:text-primary uppercase"
 								>{link.title}</a
 							>
 							{/each}
@@ -96,7 +96,7 @@
 						<div class="ml-4 flow-root lg:ml-6">
 							<button on:click={toggleCart} class="group -m-2 flex items-center p-2">
 								<svg
-									class="h-6 w-6 flex-shrink-0 text-primary group-hover:text-secondary"
+									class="h-6 w-6 flex-shrink-0 text-primary group-hover:text-white"
 									fill="none"
 									viewBox="0 0 24 24"
 									stroke-width="1.5"
@@ -109,7 +109,7 @@
 										d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
 									/>
 								</svg>
-								<span class="ml-2 text-sm font-medium text-primary group-hover:text-secondary"
+								<span class="ml-2 text-sm font-medium text-primary group-hover:text-white"
 									>{items.length}</span
 								>
 								<span class="sr-only">items in cart, view bag</span>

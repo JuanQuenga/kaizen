@@ -3,6 +3,9 @@
   import MobileNavbar from './MobileNavbar.svelte';
 	import { cart, type CartItem } from '$lib/stores/cart';
 
+	let scrollY = 0;
+	$: hasScrolled = scrollY > 10;
+
 	let items: CartItem[];
   cart.subscribe(value => {
     items = value;
@@ -25,6 +28,8 @@
 	];
 </script>
 
+<svelte:window bind:scrollY={scrollY}/>
+
 <div class="font-montserrat fixed block w-full z-10">
 	<!-- Cart -->
 	{#if isCartOpen}
@@ -45,8 +50,9 @@
 	{/if}
 
 
-	<header class="relative bg-transparent">
-
+	<header
+	 class:bg-navigation={hasScrolled}
+	 class="relative transition-colors duration-300">
 		<nav aria-label="Top" class="mx-auto max-w-7xl px-2">
 			<div class="">
 				<div class="flex h-16 items-center justify-between">

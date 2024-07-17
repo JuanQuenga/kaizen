@@ -37,10 +37,10 @@
 
     <div class="absolute inset-0 z-0">
       <div class="absolute inset-0 bg-black opacity-60"></div>
-      <img src={printerImage} alt="Kaizen Customs LLC, 3D Prints" class="absolute top-40 h-full w-full object-cover scale-50" />
+      <img src={printerImage} alt="Kaizen Customs LLC, 3D Prints" class="absolute top-40 h-full w-full object-cover scale-[25%] md:scale-50" />
     </div>
-    <div class="relative z-0 text-center text-white w-1/2 top-30">
-      <h1 class="text-6xl font-bold mb-4 ">Smart Home Innovations & Maker Essentials</h1>
+    <div class="relative z-0 text-center text-white w-[95%] md:w-1/2 top-30">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">Smart Home Innovations & Maker Essentials</h1>
       <p class="text-xl text-default">Revolutionizing custom lighting through technology and design</p>
     </div>
   </section>

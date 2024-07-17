@@ -51,8 +51,11 @@
 
 
 	<header
-	 class:bg-navigation={hasScrolled}
-	 class="relative transition-colors duration-300">
+	 class:bg-background={hasScrolled}
+	 class:border-primary={hasScrolled}
+	 class:border-transparent={!hasScrolled}
+	 class:bg-opacity-90={hasScrolled}
+	 class="relative transition-all duration-300 border-b-2">
 		<nav aria-label="Top" class="mx-auto max-w-7xl px-2">
 			<div class="">
 				<div class="flex h-16 items-center justify-between">

@@ -31,7 +31,7 @@
   }
 </script>
 
-<section class="bg-background py-8">
+<section class="py-8 min-h-screen bg-background">
 	<div class="max-w-7xl mx-auto flex items-center flex-wrap pt-4 pb-12">
 		<nav id="store" class="w-full z-0 top-0 px-2 py-1">
 			<div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">

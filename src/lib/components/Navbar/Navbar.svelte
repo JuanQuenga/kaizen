@@ -2,6 +2,7 @@
   import Cart from '../ShoppingCart/Cart.svelte';
   import MobileNavbar from './MobileNavbar.svelte';
 	import { cart, type CartItem } from '$lib/stores/cart';
+  import { text } from '@sveltejs/kit';
 
 	let scrollY = 0;
 	$: hasScrolled = scrollY > 10;
@@ -10,6 +11,7 @@
   cart.subscribe(value => {
     items = value;
   });
+	$: isCartEmpty = items.length === 0;
 
 	let isCartOpen = false;
   function toggleCart() {
@@ -30,7 +32,7 @@
 
 <svelte:window bind:scrollY={scrollY}/>
 
-<div class="font-montserrat fixed block w-full z-10">
+<div class="font-bebas fixed block w-full z-10">
 	<!-- Cart -->
 	{#if isCartOpen}
 		<Cart toggleCart={toggleCart} />
@@ -55,7 +57,7 @@
 	 class:border-primary={hasScrolled}
 	 class:border-transparent={!hasScrolled}
 	 class:bg-opacity-90={hasScrolled}
-	 class="relative transition-all duration-300 border-b-2">
+	 class="relative transition-all duration-300 border-b-2 md:border-b-0">
 		<nav aria-label="Top" class="mx-auto max-w-7xl px-2">
 			<div class="">
 				<div class="flex h-16 items-center justify-between">
@@ -83,7 +85,9 @@
 
 					<!-- Logo -->
 					<div class="flex flex-1 items-center">
-						<a href="/" class=" text-4xl text-primary hover:text-white self-stretch ">
+						
+						<a href="/" class="flex items-center  text-4xl text-white hover:text-primary self-stretch font-bebas font-medium">
+
 							KAIZEN
 						</a>
 					</div>
@@ -105,7 +109,9 @@
 						<div class="ml-4 flow-root lg:ml-6">
 							<button on:click={toggleCart} class="group -m-2 flex items-center p-2">
 								<svg
-									class="h-6 w-6 flex-shrink-0 text-primary group-hover:text-white"
+									class:text-primary={!isCartEmpty}
+									class:text-white={isCartEmpty}
+									class="h-6 w-6 flex-shrink- group-hover:text-primary"
 									fill="none"
 									viewBox="0 0 24 24"
 									stroke-width="1.5"
@@ -118,9 +124,13 @@
 										d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
 									/>
 								</svg>
-								<span class="ml-2 text-sm font-medium text-primary group-hover:text-white"
-									>{items.length}</span
+								<span
+									class:text-primary={!isCartEmpty}
+									class:text-white={isCartEmpty}
+									class="ml-2 text-sm font-medium group-hover:text-primary"
 								>
+									{items.length}
+								</span>
 								<span class="sr-only">items in cart, view bag</span>
 							</button>
 						</div>

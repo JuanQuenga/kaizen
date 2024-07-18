@@ -2,6 +2,7 @@
   import Navbar from '$lib/components/Navbar/Navbar.svelte';
   import { onMount } from 'svelte';
 	import printerImage from '$lib/assets/images/printers/transparent2.png';
+  import Lines from '$lib/components/Lines.svelte';
 
   onMount(() => {
     // Add any necessary JavaScript for animations or interactivity
@@ -25,13 +26,7 @@
 
   <!-- Hero Section -->
   <section class="relative h-screen flex items-start justify-center overflow-hidden pt-40 ">
-    <div class="lines">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
+   <Lines />
 
     <div class="absolute inset-0 z-0">
       <div class="absolute inset-0 bg-black opacity-60"></div>

@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#66FCF1",
+        primary: "#00FFFF",
         secondary: "#45A29E",
         base: "#c5c6c7",
         default: "#c5c6c7",
@@ -13,6 +13,7 @@ export default {
       },
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
+        bebas: ["Bebas Neue", "sans - serif"],
       },
     },
   },

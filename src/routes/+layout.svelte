@@ -24,11 +24,12 @@
 		href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap"
 		rel="stylesheet"
 	/>
+	
 </svelte:head>
 
 <body 
 	data-theme="retro"
-	class="bg-gradient-to-b from-background to-primary text-default font-montserrat leading-normal tracking-normal"
+	class="bg-gradient-to-b from-background to-[#29C5F6] text-default font-bebas leading-normal tracking-normal"
 >
 	<Navbar />
 

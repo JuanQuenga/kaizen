@@ -51,13 +51,13 @@
   export let toggleCart;
 </script>
 
-<div class="relative z-40" role="dialog" aria-modal="true">
+<div class="relative z-40 text-white" role="dialog" aria-modal="true">
   <div 
     transition:fly={{ x: 300, duration: 300 }} 
     class="fixed inset-0 z-40 flex justify-end"
   >
-    <div class="relative flex w-full max-w-md flex-col overflow-y-auto bg-navigation pb-12 shadow-xl">
-      <div class="flex px-4 pb-5 pt-5 justify-end">
+    <div class="relative flex w-full max-w-md flex-col overflow-y-auto bg-navigation shadow-xl">
+      <div class="flex px-4 py-8 justify-end">
         <button
           type="button"
           on:click={toggleCart}
@@ -84,10 +84,10 @@
         </div>
       {:else}
         <!-- Cart Items -->
-        <div class="space-y-6 border-t border-white px-2 mx-2 py-6">
+        <div class="space-y-6 border-t border-white mx-2 py-6 flex-grow">
            <ul class="space-y-4">
             {#each items as item}
-              <li class="flex gap-2">
+              <li class="flex gap-4 ">
                 <img src={item.image} alt={item.name} class="w-24 aspect-1 object-cover" />
 
                 <div class="flex-col">
@@ -124,28 +124,13 @@
                   </div>
 
                 </div>
-
-                <!-- <div class="flex justify-between">
-                  <div class="flex-col">
-                    <h3 class="font-bold">{item.name}</h3>
-                    <button 
-                      class=" text-default underline text-sm"
-                      on:click={() => removeItem(item.id)}
-                    >
-                      Remove
-                    </button>
-                  </div>
-                  <p class="text-primary">${item.price.toFixed(2)}</p>
-                </div> -->
-
-                
               </li>
             {/each}
           </ul>
         </div>   
 
         <!-- Checkout Button & Total -->
-        <div class="border-t border-white mx-2 py-6">
+        <div class="mx-2 py-6">
           <button on:click={checkout} class="flex items-center p-2 bg-primary w-full text-xl text-black">
             <div class="mx-auto">Checkout • ${items.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}</div>
           </button>

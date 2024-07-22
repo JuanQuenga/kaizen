@@ -9,7 +9,8 @@
       id: product.id,
       name: product.name,
       price: product.default_price.unit_amount/100,
-      quantity: 1
+      quantity: 1,
+      image: product.images[0]
     };
 		console.log(JSON.stringify(cartItem));
 		cart.addItem(cartItem);

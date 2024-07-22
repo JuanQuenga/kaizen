@@ -2,7 +2,7 @@
   import SocialLink from "./SocialLink.svelte";
 
 </script>
-<footer class="bg-transparent absolute bottom-0 w-full">
+<footer class="bg-background">
 	<div class="mx-auto max-w-7xl px-4 py-12 md:flex md:items-center md:justify-between ">
 		<div class="flex justify-center space-x-6 md:order-2">
 			<SocialLink srText='Facebook'>
@@ -42,7 +42,7 @@
 
 		</div>
 		<div class="mt-8 md:order-1 md:mt-0">
-			<p class="text-center leading-5 text-white">
+			<p class="text-center leading-5 text-base">
 				&copy; 2024 Kaizen Customs LLC. All rights reserved.
 			</p>
 		</div>

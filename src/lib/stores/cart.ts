@@ -5,6 +5,7 @@ export interface CartItem {
   name: string;
   price: number;
   quantity: number;
+  image: string;
 }
 
 const CART_STORAGE_KEY = "shopping_cart";

@@ -61,7 +61,7 @@
         <button
           type="button"
           on:click={toggleCart}
-          class="-m-2 inline-flex items-center justify-center p-2 text-background bg-primary"
+          class="-m-2 inline-flex items-center justify-center p-2 text-background bg-white"
         >
           <span class="sr-only">Close menu</span>
           <svg
@@ -78,60 +78,86 @@
       </div>
 
       {#if items.length === 0}
-      <div class="space-y-6 border-t border-b border-primary px-2 mx-2 py-6">
-        <p class="text-xl  text-center">Your cart is empty</p>
+        <div class="space-y-6 border-t border-b border-white px-2 mx-2 py-6">
+          <p class="text-xl  text-center">Your cart is empty</p>
 
-      </div>
+        </div>
       {:else}
         <!-- Cart Items -->
-        <div class="space-y-6 border-t border-primary px-2 mx-2 py-6">
+        <div class="space-y-6 border-t border-white px-2 mx-2 py-6">
            <ul class="space-y-4">
             {#each items as item}
-              <li class="flex-col">
-                <div class="flex justify-between">
-                  <h3 class="font-semibold">{item.name}</h3>
-                  <p class="text-secondary">${item.price.toFixed(2)}</p>
+              <li class="flex gap-2">
+                <img src={item.image} alt={item.name} class="w-24 aspect-1 object-cover" />
+
+                <div class="flex-col">
+                  <h3 class="font-bold mb-6">{item.name}</h3>
+                
+                  <div class='flex'>
+                    <div class="mr-2">
+                      <button 
+                      class="bg-white px-2 text-background font-bold"
+                      on:click={() => updateQuantity(item.id, Math.max(1, item.quantity - 1))}>
+                        -
+                      </button>
+
+                      <span class="px-2 text-white text-bold">{item.quantity}</span>
+
+                      <button 
+                        class="bg-white px-2 text-background font-bold"
+                        on:click={() => updateQuantity(item.id, item.quantity + 1)}
+                      >
+                        +
+                      </button>
+
+                      
+                    </div>
+                    <div class="flex-grow text-left">
+                       <button 
+                        class=" text-default underline text-sm"
+                        on:click={() => removeItem(item.id)}
+                      >
+                        Remove
+                      </button>
+                    </div>
+                    <p class="text-primary text-bold">${item.price.toFixed(2)}</p>
+                  </div>
+
                 </div>
-                <div class='flex items-center justify-between'>
-                   <button 
-                    class="mt-4 text-red-500"
-                    on:click={() => removeItem(item.id)}
-                  >
-                    Remove
-                  </button>
-                  <div class="">
+
+                <!-- <div class="flex justify-between">
+                  <div class="flex-col">
+                    <h3 class="font-bold">{item.name}</h3>
                     <button 
-                    class="bg-secondary px-3 py-1 text-white font-bold"
-                    on:click={() => updateQuantity(item.id, Math.max(1, item.quantity - 1))}>
-                      -
-                    </button>
-                    <span class="px-2">{item.quantity}</span>
-                    <button 
-                      class="bg-secondary px-3 py-1 text-white font-bold"
-                      on:click={() => updateQuantity(item.id, item.quantity + 1)}
+                      class=" text-default underline text-sm"
+                      on:click={() => removeItem(item.id)}
                     >
-                      +
+                      Remove
                     </button>
                   </div>
-                 
-                </div>
+                  <p class="text-primary">${item.price.toFixed(2)}</p>
+                </div> -->
+
+                
               </li>
             {/each}
           </ul>
-        </div>
-
-       
+        </div>   
 
         <!-- Checkout Button & Total -->
-        <div class="border-t border-primary mx-2 py-6">
-          <p class="text-xl font-bold text-right mb-4">
-            Total: ${items.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}
+        <div class="border-t border-white mx-2 py-6">
+
+          <button on:click={checkout} class=" flex items-center p-2 bg-primary border-b-2 border-secondary w-full text-xl text-background">
+            <div class="mx-auto">Checkout • ${items.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}</div>
+          </button>
+
+           <p class="text-nd text-center mt-4">
+            Shipping & taxes calculated at checkout
           </p>
 
-          <button on:click={checkout} class=" flex items-center p-2 bg-primary border-b-2 border-secondary w-full font-bold text-xl text-background">
-          <div class="mx-auto">CHECKOUT</div>
-          </button>
         </div>
+
+        <!-- Suggestions -->
       {/if}
     </div>
   </div>

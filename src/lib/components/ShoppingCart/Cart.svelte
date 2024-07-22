@@ -146,15 +146,12 @@
 
         <!-- Checkout Button & Total -->
         <div class="border-t border-white mx-2 py-6">
-
-          <button on:click={checkout} class=" flex items-center p-2 bg-primary border-b-2 border-secondary w-full text-xl text-background">
+          <button on:click={checkout} class="flex items-center p-2 bg-primary w-full text-xl text-black">
             <div class="mx-auto">Checkout • ${items.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}</div>
           </button>
-
-           <p class="text-nd text-center mt-4">
+          <p class="text-sm text-center mt-2">
             Shipping & taxes calculated at checkout
           </p>
-
         </div>
 
         <!-- Suggestions -->

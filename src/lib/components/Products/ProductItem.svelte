@@ -16,7 +16,7 @@
                 <span class="text-xl font-extralight text-black">${(price/100).toFixed(2)}</span>
                 <button 
                     on:click|stopPropagation={addToCart} 
-                    class="text-sm px-4 py-2 bg-teal-400 text-white font-semibold uppercase  hover:bg-teal-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    class="text-sm px-4 py-2 bg-cyan-400 text-white font-semibold uppercase  hover:bg-cyan-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                     Add to cart
                 </button>

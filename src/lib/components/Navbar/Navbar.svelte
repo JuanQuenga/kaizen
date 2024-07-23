@@ -41,7 +41,7 @@
 	<!-- Mobile Menu -->
 	{#if isMenoOpen}
 		<MobileNavbar toggleMenu={toggleMenu}>
-			<div class="space-y-6 border-t border-primary px-4 py-6">
+			<div class="space-y-6 border-t border-cyan-400 px-4 py-6">
 				{#each navigationLinks as link}
 					<div class="flow-root">
 						<a href={link.url} class="-m-2 block p-2 font-medium text-white uppercase text-xl">{link.title}</a>
@@ -54,7 +54,7 @@
 
 	<header
 	 class:bg-background={hasScrolled}
-	 class:border-primary={hasScrolled}
+	 class:border-cyan-400={hasScrolled}
 	 class:border-transparent={!hasScrolled}
 	 class:bg-opacity-90={hasScrolled}
 	 class="relative transition-all duration-300 border-b-2 md:border-b-0">
@@ -63,7 +63,7 @@
 				<div class="flex h-16 items-center justify-between">
 					<div class="flex flex-1 items-center md:hidden">
 						<!-- Mobile menu toggle, controls the 'mobileMenuOpen' state. -->
-						<button type="button" on:click={toggleMenu} class="-ml-2 rounded-md bg-transparent p-2 text-primary">
+						<button type="button" on:click={toggleMenu} class="-ml-2 rounded-md bg-transparent p-2 text-cyan-400">
 							<span class="sr-only">Open menu</span>
 							<svg
 								class="h-8 w-8"
@@ -86,7 +86,7 @@
 					<!-- Logo -->
 					<div class="flex flex-1 items-center">
 						
-						<a href="/" class="flex items-center  text-4xl text-white hover:text-primary self-stretch font-bebas font-medium">
+						<a href="/" class="flex items-center  text-4xl text-white hover:text-cyan-400 self-stretch font-bebas font-medium">
 
 							KAIZEN
 						</a>
@@ -96,7 +96,7 @@
 					<div class="hidden md:block">
 						<div class="flex h-full space-x-8 ">
 							{#each navigationLinks as link}
-							<a href={link.url} class="flex items-center text-xl font-medium text-white hover:text-primary uppercase"
+							<a href={link.url} class="flex items-center text-xl font-medium text-white hover:text-cyan-400 uppercase"
 								>{link.title}</a
 							>
 							{/each}
@@ -109,9 +109,9 @@
 						<div class="ml-4 flow-root lg:ml-6">
 							<button on:click={toggleCart} class="group -m-2 flex items-center p-2">
 								<svg
-									class:text-primary={!isCartEmpty}
+									class:text-cyan-400={!isCartEmpty}
 									class:text-white={isCartEmpty}
-									class="h-6 w-6 flex-shrink- group-hover:text-primary"
+									class="h-6 w-6 flex-shrink- group-hover:text-cyan-400"
 									fill="none"
 									viewBox="0 0 24 24"
 									stroke-width="1.5"
@@ -125,9 +125,9 @@
 									/>
 								</svg>
 								<span
-									class:text-primary={!isCartEmpty}
+									class:text-cyan-400={!isCartEmpty}
 									class:text-white={isCartEmpty}
-									class="ml-2 text-sm font-medium group-hover:text-primary"
+									class="ml-2 text-sm font-medium group-hover:text-cyan-400"
 								>
 									{items.length}
 								</span>

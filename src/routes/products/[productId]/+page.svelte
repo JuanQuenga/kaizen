@@ -1,9 +1,7 @@
 <script lang="ts">
-  import Header from '$lib/components/Header.svelte';
-	import ColorPicker from '$lib/components/Products/ColorPicker.svelte';
 	import type { StripeProduct, StripeProductResponse } from './+page';
 	import { cart } from '$lib/stores/cart';
-  import HeaderSection from '$lib/components/Sections/HeaderSection.svelte';
+  import ProductSuggestions from '$lib/components/Products/ProductSuggestions.svelte';
 
   function addToCart(product: StripeProduct) {
 		const cartItem = {
@@ -29,16 +27,12 @@
 		</div>
 </Header> -->
 
-<HeaderSection headerText='Our Products' />
-
-<div class="bg-background">
-  <div class="pb-16 pt-6 sm:pb-24">
-
-    <div class="mx-auto mt-8 container">
+<div class="pt-20 bg-gradient-to-b from-background to-cyan-950">
+    <div class="mx-auto pt-2 md:pt-6 md:mt-8 container px-4">
       <div class="lg:grid lg:auto-rows-min lg:grid-cols-12 lg:gap-x-8">
         <div class="lg:col-span-5 lg:col-start-8">
           <div class="flex justify-between gap-4">
-            <h1 class="text-4xl font-bold text-white">{product.name}</h1>
+            <h1 class="text-xl md:text-4xl font-bold text-white">{product.name}</h1>
             <p class="text-xl font-extralight text-white">${product.default_price.unit_amount/100}</p>
           </div>
         </div>
@@ -60,9 +54,9 @@
 
 						 <!-- Product details -->
 						<div class="mt-10">
-							<h2 class="text-sm font-medium text-base">Description</h2>
+							<h2 class="text-xl font-medium text-white under uppercase border-b-2 border-gray-600 pb-4">Description</h2>
 
-							<div class="prose prose-sm mt-4 text-gray-500">
+							<div class=" mt-4 text-gray-300 text-lg md:text-xl">
 								<p>{product.description}</p>
 							</div>
 						</div>
@@ -70,13 +64,19 @@
             <button 
               on:click={() => addToCart(product)} 
               type="submit" 
-              class=" mt-8 text-white flex w-full items-center justify-center border border-transparent bg-cyan-400 px-8 py-3 font-medium uppercase hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-navigation focus:ring-offset-2"
+              class=" mt-8 text-2xl text-white flex w-full items-center justify-center border border-transparent bg-cyan-400 px-8 py-3 font-medium uppercase hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-navigation focus:ring-offset-2"
             >
               Add to cart
             </button>
           </form>
         </div>
+
+       
       </div>
+      
     </div>
-  </div>
+    <div class="text-center bg-background py-8">
+      <h2 class="text-6xl uppercase font-extraligt mb-6 text-white">You May Also Like</h2>
+      <ProductSuggestions />
+    </div>
 </div>

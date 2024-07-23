@@ -12,7 +12,7 @@
 						<button
 							type="button"
 							on:click={toggleMenu}
-							class="-m-2 inline-flex items-center justify-center rounded-md p-2 text-cyan-400"
+							class="-m-2 inline-flex items-center justify-center rounded-md p-2 text-white hover:text-cyan-400 focus:text-cyan-400"
 						>
 							<span class="sr-only">Close menu</span>
 							<svg

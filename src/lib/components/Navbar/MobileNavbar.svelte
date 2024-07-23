@@ -4,7 +4,7 @@
 </script>
 <div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
 
-			<div transition:fade={{ duration: 300 }} class="fixed inset-0 bg-black bg-opacity-75" aria-hidden="true"></div>
+			<div  transition:fade={{ duration: 300 }} class="fixed inset-0 bg-black bg-opacity-75" aria-hidden="true"></div>
 
 			<div transition:fly={{ x: -300, duration: 300 }} class="fixed inset-0 z-40 flex">
 				<div class="relative flex w-full max-w-xs flex-col overflow-y-auto bg-navigation pb-12 shadow-xl">

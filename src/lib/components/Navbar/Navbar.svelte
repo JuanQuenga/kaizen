@@ -63,7 +63,7 @@
 				<div class="flex h-16 items-center justify-between">
 					<div class="flex flex-1 items-center md:hidden">
 						<!-- Mobile menu toggle, controls the 'mobileMenuOpen' state. -->
-						<button type="button" on:click={toggleMenu} class="-ml-2 rounded-md bg-transparent p-2 text-cyan-400">
+						<button type="button" on:click={toggleMenu} class="-ml-2 rounded-md bg-transparent p-2 text-white focus:text-cyan-400 hover:text-cyan-400">
 							<span class="sr-only">Open menu</span>
 							<svg
 								class="h-8 w-8"
@@ -86,7 +86,7 @@
 					<!-- Logo -->
 					<div class="flex flex-1 items-center">
 						
-						<a href="/" class="flex items-center  text-4xl text-white hover:text-cyan-400 self-stretch font-bebas font-medium">
+						<a href="/" class="flex items-center  text-4xl self-stretch font-bebas font-medium bg-clip-text bg-gradient-to-r from-cyan-400 via-cyan-300 to-cyan-400 text-transparent transition-all hover:text-white duration-500">
 
 							KAIZEN
 						</a>
@@ -109,8 +109,6 @@
 						<div class="ml-4 flow-root lg:ml-6">
 							<button on:click={toggleCart} class="group -m-2 flex items-center p-2">
 								<svg
-									class:text-cyan-400={!isCartEmpty}
-									class:text-white={isCartEmpty}
 									class="h-6 w-6 flex-shrink- group-hover:text-cyan-400"
 									fill="none"
 									viewBox="0 0 24 24"

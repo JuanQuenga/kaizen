@@ -131,7 +131,7 @@
 
         <!-- Checkout Button & Total -->
         <div class="mx-2 py-6">
-          <button on:click={checkout} class="flex items-center p-2 bg-primary w-full text-xl text-black">
+          <button on:click={checkout} class="flex items-center p-2 bg-cyan-400 w-full text-xl md:text-2xl text-white uppercase">
             <div class="mx-auto">Checkout • ${items.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}</div>
           </button>
           <p class="text-sm text-center mt-2">

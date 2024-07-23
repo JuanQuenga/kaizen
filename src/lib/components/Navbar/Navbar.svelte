@@ -63,7 +63,7 @@
 				<div class="flex h-16 items-center justify-between">
 					<div class="flex flex-1 items-center md:hidden">
 						<!-- Mobile menu toggle, controls the 'mobileMenuOpen' state. -->
-						<button type="button" on:click={toggleMenu} class="-ml-2 rounded-md bg-transparent p-2 text-white focus:text-cyan-400 hover:text-cyan-400">
+						<button type="button" on:click={toggleMenu} class="-ml-2 rounded-md bg-transparent p-2 text-white  hover:text-cyan-400">
 							<span class="sr-only">Open menu</span>
 							<svg
 								class="h-8 w-8"
@@ -86,7 +86,7 @@
 					<!-- Logo -->
 					<div class="flex flex-1 items-center">
 						
-						<a href="/" class="flex items-center  text-4xl self-stretch font-bebas font-medium bg-clip-text bg-gradient-to-r from-cyan-400 via-cyan-300 to-cyan-400 text-transparent transition-all hover:text-white duration-500">
+						<a href="/" class="text-white flex items-center  text-4xl self-stretch font-bebas font-extralight tracking-widest text-transparent transition-all hover:text-cyan-400 duration-500">
 
 							KAIZEN
 						</a>

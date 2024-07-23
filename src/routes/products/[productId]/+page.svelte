@@ -3,6 +3,7 @@
 	import ColorPicker from '$lib/components/Products/ColorPicker.svelte';
 	import type { StripeProduct, StripeProductResponse } from './+page';
 	import { cart } from '$lib/stores/cart';
+  import HeaderSection from '$lib/components/Sections/HeaderSection.svelte';
 
   function addToCart(product: StripeProduct) {
 		const cartItem = {
@@ -28,15 +29,17 @@
 		</div>
 </Header> -->
 
+<HeaderSection headerText='Our Products' />
+
 <div class="bg-background">
   <div class="pb-16 pt-6 sm:pb-24">
 
-    <div class="mx-auto mt-8 max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="mx-auto mt-8 container">
       <div class="lg:grid lg:auto-rows-min lg:grid-cols-12 lg:gap-x-8">
         <div class="lg:col-span-5 lg:col-start-8">
-          <div class="flex justify-between">
-            <h1 class="text-xl font-medium text-white">{product.name}</h1>
-            <p class="text-xl font-medium text-primary">${product.default_price.unit_amount/100}</p>
+          <div class="flex justify-between gap-4">
+            <h1 class="text-4xl font-bold text-white">{product.name}</h1>
+            <p class="text-xl font-extralight text-white">${product.default_price.unit_amount/100}</p>
           </div>
         </div>
 
@@ -45,7 +48,7 @@
           <h2 class="sr-only">Images</h2>
 
           <div class="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-3 lg:gap-8">
-            <img src={product.images[0]} alt={product.description} class="rounded-lg lg:col-span-2 lg:row-span-2">
+            <img src={product.images[0]} alt={product.description} class="lg:col-span-2 lg:row-span-2">
             <!-- <img src={product.images[1]} alt={product.description} class="hidden rounded-lg lg:block"> -->
             <!-- <img src={product.images[2]} alt={product.description} class="hidden rounded-lg lg:block"> -->
           </div>
@@ -64,7 +67,13 @@
 							</div>
 						</div>
 
-            <button on:click={() => addToCart(product)} type="submit" class="mt-8 text-background flex w-full items-center justify-center rounded-md border border-transparent bg-primary px-8 py-3 font-medium uppercase hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-navigation focus:ring-offset-2">Add to cart</button>
+            <button 
+              on:click={() => addToCart(product)} 
+              type="submit" 
+              class=" mt-8 text-white flex w-full items-center justify-center border border-transparent bg-cyan-400 px-8 py-3 font-medium uppercase hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-navigation focus:ring-offset-2"
+            >
+              Add to cart
+            </button>
           </form>
         </div>
       </div>

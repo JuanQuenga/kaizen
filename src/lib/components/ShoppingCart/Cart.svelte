@@ -120,7 +120,7 @@
                         Remove
                       </button>
                     </div>
-                    <p class="text-primary text-bold">${item.price.toFixed(2)}</p>
+                    <p class="text-cyan-400 text-bold">${item.price.toFixed(2)}</p>
                   </div>
 
                 </div>

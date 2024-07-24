@@ -28,16 +28,28 @@
 <div class="min-h-screen bg-transparent">
 
   <!-- Hero Section -->
-  <section class="relative h-screen flex items-start justify-center overflow-hidden pt-40 ">
+  <section class="relative h-screen flex items-start md:items-center justify-center overflow-hidden pt-40 ">
    <Lines />
 
-    <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 z-0 flex justify-center">
       <div class="absolute inset-0 bg-black opacity-60"></div>
-      <img src={printerImage} alt="Kaizen Customs LLC, 3D Prints" class="absolute top-40 h-full w-full object-cover scale-[25%] md:scale-50" />
     </div>
-    <div class="relative z-0 text-center text-white w-[95%] md:w-1/2 top-30">
-      <h1 class="text-4xl md:text-6xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-500 to-primary">Smart Home Innovations & Maker Essentials</h1>
-      <p class="text-xl text-default">Revolutionizing custom lighting through technology and design</p>
+    <div class="relative z-0 text-center text-white px-4 flex flex-col md:max-w-1/2">
+      <div class="flex justify-center"> 
+        <h1 class="text-4xl w-full md:text-7xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400">
+          Smart Home Innovations & Maker Essentials
+        </h1>
+      </div>
+      <p class="text-lg font-extralight md:text-3xl text-default">
+        Revolutionizing custom lighting through technology and design
+      </p>
+      <div class="flex justify-center mt-8">
+        <a href="/store" class="inline-block text-xl md:text-3xl px-6 py-2 bg-gradient-to-r from-cyan-400 to-blue-500 text-white uppercase transition-all hover:scale-110 focus:scale-110">
+          Shop Now
+        </a>
+      </div>
+      <img src={printerImage} alt="Kaizen Customs LLC, 3D Prints" class="mt-4 md:mt-20 md:w-full object-fill" />
+
     </div>
   </section>
 </div>

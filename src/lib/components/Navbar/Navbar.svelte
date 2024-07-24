@@ -58,7 +58,7 @@
 	 class:border-transparent={!hasScrolled}
 	 class:bg-opacity-90={hasScrolled}
 	 class="relative transition-all duration-300 border-b-2 md:border-b-0">
-		<nav aria-label="Top" class="mx-auto max-w-7xl px-2">
+		<nav aria-label="Top" class="mx-auto container px-4">
 			<div class="">
 				<div class="flex h-16 items-center justify-between">
 					<div class="flex flex-1 items-center md:hidden">

@@ -78,11 +78,11 @@
 </script>
 <HeaderSection headerText="Our Products" />
 
-<section class="md:py-12 min-h-screen bg-stone-900">
+<section class="py-4 md:py-12 min-h-screen bg-stone-900">
 	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="mb-8">
+		<div class="mb-4">
 			<!-- <h1 class="text-3xl font-bold text-gray-900 mb-4">Latest Products</h1> -->
-			<div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+			<div class="flex flex-row justify-between items-center gap-4">
 				<div class="relative w-full sm:w-64">
 					<input
 						type="text"
@@ -94,9 +94,9 @@
 				</div>
 				<button
 					on:click={handleSort}
-					class="flex items-center px-4 py-2 bg-white border border-gray-300 shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+					class="flex items-center h-[42px] px-4 py-2 bg-white border border-gray-300 shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
 				>
-					Sort by Price
+					Price
 					<span class="ml-2">{sortOrder === 'asc' ? '↑' : '↓'}</span>
 				</button>
 			</div>

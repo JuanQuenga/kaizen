@@ -9,6 +9,7 @@
 
 <div class="bg-white border border-gray-800 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md">
     <a {href} class="block">
+            
         <img class="w-full h-48 object-cover" src={src || printerImg} alt={name} />
         <div class="p-4">
             <h3 class="text-2xl font-semibold text-black mb-2">{name}</h3>

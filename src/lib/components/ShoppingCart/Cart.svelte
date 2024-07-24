@@ -101,7 +101,7 @@
                         -
                       </button>
 
-                      <span class="px-2 text-white text-bold">{item.quantity}</span>
+                         <span class="px-2 text-white text-bold">{item.quantity}</span>
 
                       <button 
                         class="bg-white px-2 text-background font-bold"
